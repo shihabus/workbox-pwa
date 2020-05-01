@@ -1,0 +1,12 @@
+{
+  "name": "workbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve":"http-server -p 1336 build -c-1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
