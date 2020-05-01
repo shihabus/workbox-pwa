@@ -22,3 +22,10 @@ li span {
     font-weight: normal;
     font-size: .8em;
 }
+
+
+@media all and (display-mode:standalone){
+    body{
+        background-color: bisque;
+    }
+}

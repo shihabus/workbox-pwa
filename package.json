@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve":"http-server -p 1336 build -c-1"
+    "serve":"http-server -p 1336 index.html -c-1"
   },
   "keywords": [],
   "author": "",
