@@ -12,49 +12,26 @@
 <body>
     <h1>Our users</h1>
     <button id="btnAdd">Install</button>
+    <button id="push-btn" disabled> Enable Push Messaging</button>
+
+    <main>
+        <section class="subscription-details js-subscription-details is-invisible">
+            <p>Once you've subscribed your user, you'd send their subscription to your
+                server to store in a database so that when you want to send a message
+                you can lookup the subscription and send a message to it.</p>
+            <p>To simplify things for this code lab copy the following details
+                into the <a href="https://web-push-codelab.glitch.me/">Push Companion
+                    Site</a> and it'll send a push message for you, using the application
+                server keys on the site - so make sure they match.</p>
+            <pre><code class="js-subscription-json"></code></pre>
+        </section>
+    </main>
 
     <ul id="people"></ul>
 
+
+
     <script async src="./app.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(reg => {
-                        console.log('Registered', reg)
-                    }).catch(err => {
-                        console.log('Registration failed', err)
-                    })
-            });
-        }
-
-        let deferredPrompt;
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Stash the event so it can be triggered later.
-            deferredPrompt = e;
-            // Update UI notify the user they can install the PWA
-            btnAdd.addEventListener('click', e => {
-                deferredPrompt.prompt()
-                deferredPrompt.userChoice.then(choiceResult => {
-                    console.log('choiceResult', choiceResult)
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the A2HS prompt')
-                    }
-                    deferredPrompt = null
-                })
-            })
-        });
-
-
-
-
-        window.addEventListener('appinstalled', e => {
-            console.log('App installed')
-        })
-    </script>
 </body>
 
 </html>
